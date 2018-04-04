@@ -1,6 +1,8 @@
 #ifndef POSITIONS_H
 #define POSITIONS_H
 
+#include <ostream>
+
 class Position {
 public:
   // Initialize a position. It consists of a radius expressed in meters
@@ -25,7 +27,7 @@ public:
 
   // Print this position.
   void Print ();
-  friend ostream& operator<< (ostream &out, Position &pos);
+  friend std::ostream& operator<< (std::ostream &out, Position &pos);
 
   // Return true if someone at this position can see someone 
   // or something at the argument position (i.e. the statue 
@@ -43,6 +45,8 @@ public:
   // than pi radians, and the radii of all the positions 
   // are the same.
   bool IsBetween (Position old, Position current);
+
+  float metersToRadians(float meters);
 
 private:
   float myRadius;
